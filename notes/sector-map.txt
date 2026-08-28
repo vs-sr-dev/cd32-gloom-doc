@@ -1,0 +1,4 @@
+declared volume 772 sectors, image 952 sectors, overrun 180
+overrun is all zero
+unclaimed sectors inside the declared volume: 32 in 1 runs
+   LBA 740..771 (32 sectors) all zero

@@ -1,0 +1,169 @@
+000b4a  TOPANu m
+000b87  vTERF`
+001072  H@HABALB
+001e4c  ?>SYRQa
+003171  ,winner!
+00318a  loser!
+0031d4  game over
+0031e4  game over
+003255  Hhealth bonus!
+0032ba  weapon boosted to full!
+0032d8  weapon boost!
+003302  ultra mega overkill!!!
+00331f  ~mega weapon boost!
+003347  Vnew weapon!
+003367  6invisibility!
+003394  hyper!
+0033da  bouncy bullets!
+003404  got the thermo glasses!
+003431  lmega wepaon out...
+003455  Hthermo glasses out...
+003486  invisibility out...
+003510  hyper out...
+003536  HBDB;B
+003544  HBDB;B
+003552  HBDB;B
+003a35  LJANu0:
+0041e5  f"zRdp
+004869  DHEBEH
+0049eb  ~HELCP
+004a9c  SCSDH@HAHEHFTHN
+004cb7  ESEH@HA4,
+004d69  ESEH@HA4,
+005cc0  gamegamegamegamegamenonvolatile.library
+005e7c  o*NuRm
+006757  ESDSE<
+0067f6  CHAT MODE ENABLED
+006cb0  Nxmisc/script
+006cc6  misc/bigfont.bin
+006cdc  misc/smallfont.bin
+006cf4  sfxs/med1
+006d02  sfxs/med2
+006d10  sfxs/shoot.bin
+006d24  sfxs/shoot2.bin
+006d38  sfxs/shoot3.bin
+006d4c  sfxs/shoot4.bin
+006d60  sfxs/shoot5.bin
+006d74  sfxs/grunt.bin
+006d88  sfxs/grunt2.bin
+006d9c  sfxs/grunt3.bin
+006db0  sfxs/grunt4.bin
+006dc4  sfxs/token.bin
+006dd8  sfxs/door.bin
+006dea  sfxs/footstep.bin
+006e00  sfxs/die.bin
+006e12  sfxs/splat.bin
+006e26  sfxs/teleport.bin
+006e3c  sfxs/ghoul.bin
+006e50  sfxs/lizard.bin
+006e64  sfxs/lizhit.bin
+006e78  sfxs/trollmad.bin
+006e8c  N#sfxs/trollhit.bin
+006ea2  N'sfxs/robot.bin
+006eb6  N+sfxs/robodie.bin
+006ecc  N/sfxs/dragon.bin
+006f17  please insert gloom data disk
+006f38  oFpics/blackmagic
+006f4c  oJpics/blackmagic.pal
+00730a  $DlAG?
+0073cf  waiting for other player
+007445  sorry...not available in demo
+007572  gameg"RG
+00765a  pics/combat
+00766a  pics/combat.pal
+00769f  play spacehulk series
+0076b5  play gothic tomb series
+0076cd  play hell series
+0076de  start with 3 lives
+0076f2  CONTINUE FROM 
+007703  START NEW GAME
+0078d3  8cont_
+007968  N|Nupics/
+007a20  Nutxts/floor
+007a4c  txts/roof
+007cbe  Numaps/
+008507  player one wins combat game!
+008525  player two wins combat game!
+008543  player wins combat game!
+00855d  player loses combat game!
+008a31  player selects options
+008a49  other player selects options
+008b27  2NuCONNECT
+008b34  CONNECT
+008b43  DIAL: 
+008b5b  ATTEMPTING TO CONNECT...ESC TO ABORT
+008b81  NULL LINK
+008b8b  DIAL UP
+008b93  ANSWER
+008b9a  BAUD RATE: 2400 
+008c25  =NULL MODEM
+008c31  JOYSTICK 1
+008c3c  JOYSTICK 2
+008c47   KEYBOARD 
+008d0b  CONTINUE
+008d14  RESOLUTION
+008d1f  WINDOW SIZE
+008d2b  FULL SCREEN WINDOW
+008d44  CEILING
+008d4c  QUIT GAME
+008d5d  DMEATY
+008d6b  ONE PLAYER GAME
+008d7b  TWO PLAYER GAME
+008d8b  TWO PLAYER COMBAT
+008d9d  PLAYER 1 CD32 PAD 1
+008db1  PLAYER 2 CD32 PAD 2
+008dc5  REMOTE LINK OPTIONS
+008dd9  VIOLENCE MODEL: MEATY
+008def  ABOUT GLOOM
+008dfb  EXIT GLOOM
+008e07  TWO PLAYER GAME
+008e17  TWO PLAYER COMBAT GAME
+008e2e  UNLINK FROM REMOTE PLAYER
+008e48  ABOUT GLOOM
+008e54  EXIT GLOOM
+0091a0  SBXM"]N
+0091e0  XIXJXKXLQ
+009249  QWERTYUIOP
+009254   ASDFGHJKL
+00925f  1ZXCVBNM
+00945c  ciaa.resource
+0094e1  please write enable the gloom data disk!
+00971c  PNNuSy
+009862  Nugraphics.library
+00987e  dos.library
+009fa6  Nutxts/
+00a124  objs/player
+00a13a  objs/tokens
+00a150  objs/marine
+00a166  objs/baldy
+00a17a  objs/terra
+00a18e  objs/ghoul
+00a1a2  objs/demon
+00a1b6  objs/phantom
+00a1cc  objs/lizard
+00a1e2  objs/deathhead
+00a1fa  objs/dragon
+00a210  objs/troll
+00aa04  A BLACK MAGIC GAME
+00aa18  PROGRAMMED BY MARK SIBLY
+00aa31  GRAPHICS BY THE BUTLER BROTHERS
+00aa51  MUSIC BY KEV STANNARD
+00aa67  AUDIO BY US
+00aa73  PRODUCED BY US
+00aa82  DESIGNED BY US
+00aa91  GAME CODED IN DEVPAC2
+00aaa7  UTILITIES CODED IN BLITZ BASIC 2
+00aac8  RENDERED IN DPAINT3 AND DPAINT4
+00aae8  DECRUNCHING CODE BY THOMAS SCHWARZ
+00fabc  $$$000000
+00fadb  $$$$000000000000
+00fafb  $$$0000000000000000000
+00fbbc  $$000000000000000000
+00fbdc  $$$00000000000000000
+00fbfd  $$0000000000000000
+00fefa  $$$00000000000000000$
+02327a  HABAHA 
+02338e  1GZju}
+023395  }ujZG1
+023f44  ciax.resource
+023f53  WankFuckShit

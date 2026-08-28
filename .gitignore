@@ -1,0 +1,18 @@
+# working tree: everything extracted from the disc
+_work/
+*.png
+*.bin.out
+out.png
+
+# the disc image itself and any rip
+*.iso
+*.cue
+*.wav
+*.bin
+*.img
+*.nrg
+*.ccd
+*.sub
+
+__pycache__/
+*.pyc

@@ -1,0 +1,45 @@
+=== ciab : 1 calls
+      -12  RemICRVector     x1
+=== dos : 12 calls
+     -126  CurrentDir       x1
+      -66  Seek             x3
+      -48  Write            x1
+      -42  Read             x2
+      -36  Close            x2
+      -30  Open             x3
+=== exec : 26 calls
+     -636  CacheClearU      x1
+     -498  OpenResource     x1
+     -408  OldOpenLibrary   x3
+     -384  WaitPort         x1
+     -378  ReplyMsg         x1
+     -372  GetMsg           x1
+     -216  AvailMem         x1
+     -210  FreeMem          x2
+     -198  AllocMem         x1
+     -174  RemIntServer     x1
+     -168  AddIntServer     x1
+     -162  SetIntVector     x10
+     -138  Permit           x1
+     -132  Forbid           x1
+=== graphics : 5 calls
+     -462  DisownBlitter    x1
+     -456  OwnBlitter       x1
+     -270  WaitTOF          x2
+     -222  LoadView         x1
+=== lea((a7)) : 3 calls
+     -498  ?                x1
+     -156  ?                x1
+     -150  ?                x1
+=== nonvolatile : 4 calls
+      -66  SetNVProtection  x1
+      -42  StoreNV          x1
+      -36  FreeNVData       x1
+      -30  GetCopyNV        x1
+=== unknown(d0) : 5 calls
+     -270  ?                x1
+     -222  ?                x1
+      -60  ?                x1
+       -6  ?                x2
+
+total 56 attributed call sites

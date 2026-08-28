@@ -1,0 +1,5 @@
+application-use area: 00 46 53 00 00 54 4d 00 14 00 00 08 00 00 00 00 15 00 00 00 00 00 00 00
+'TM' tag at PVD offset 888, constant 20, length 2048, LBA 21
+whole block   SHA-1 c5ffcef2a5e33d2df606185823cd95d1c174d65f  (2048 bytes)
+banner        SHA-1 8d84115154d70360b3469acc99cdad3db0ed2c92
+object file   SHA-1 690aae24a96b69659066e691d0b07db301260572

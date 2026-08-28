@@ -1,0 +1,77 @@
+=== jsr/jmp d16(a6): 57 call sites, 30 distinct offsets
+  -8120  x1
+   -636  x1
+   -498  x2
+   -462  x1
+   -456  x1
+   -408  x3
+   -384  x1
+   -378  x1
+   -372  x1
+   -270  x3
+   -222  x2
+   -216  x1
+   -210  x2
+   -198  x1
+   -174  x1
+   -168  x1
+   -162  x10
+   -156  x1
+   -150  x1
+   -138  x1
+   -132  x1
+   -126  x1
+    -66  x4
+    -60  x1
+    -48  x1
+    -42  x3
+    -36  x3
+    -30  x4
+    -12  x1
+     -6  x2
+=== absolute custom-chip references: 146, 37 distinct
+  $DFF000  BLTDDAT    x1
+  $DFF002  DMACONR    x13
+  $DFF004  VPOSR      x2
+  $DFF006  VHPOSR     x1
+  $DFF007  ?          x2
+  $DFF00A  JOY0DAT    x2
+  $DFF00C  JOY1DAT    x2
+  $DFF016  POTGOR     x2
+  $DFF018  SERDATR    x1
+  $DFF01F  ?          x4
+  $DFF030  SERDAT     x1
+  $DFF032  SERPER     x1
+  $DFF034  POTGO      x4
+  $DFF040  BLTCON0    x4
+  $DFF042  BLTCON1    x1
+  $DFF044  BLTAFWM    x4
+  $DFF048  BLTCPTH    x1
+  $DFF04C  BLTBPTH    x1
+  $DFF050  BLTAPTH    x5
+  $DFF054  BLTDPTH    x4
+  $DFF058  BLTSIZE    x5
+  $DFF060  BLTCMOD    x1
+  $DFF062  BLTBMOD    x1
+  $DFF064  BLTAMOD    x4
+  $DFF066  BLTDMOD    x4
+  $DFF074  BLTADAT    x1
+  $DFF080  COP1LCH    x2
+  $DFF088  COPJMP1    x3
+  $DFF096  DMACON     x11
+  $DFF09A  INTENA     x21
+  $DFF09C  INTREQ     x11
+  $DFF0A0  AUD0LCH    x3
+  $DFF0B0  AUD1LCH    x1
+  $DFF0C0  AUD2LCH    x1
+  $DFF0D0  AUD3LCH    x1
+  $DFF106  BPLCON3    x10
+  $DFF180  COLOR00    x10
+=== Akiko
+  bytes 00 B8 00 00              0  []
+  bytes 00 B8 00 38 (C2P port)   0  []
+  bytes 00 B8 00 3C              0  []
+  C0DE0000 id constant           0  []
+  any 00 B8 00 xx                8  ['0x245ee', '0x24606', '0x2461e', '0x24636', '0x24a70', '0x24a88', '0x24aa0', '0x24ab8']
+=== io_Command immediates (3?7c 00nn 001c): 1
+    2  x1
