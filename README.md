@@ -33,7 +33,7 @@ table and image in these pages from your own legally obtained copy.
 | [09-audio.md](docs/09-audio.md) | Two OctaMED modules, 24 effects that carry their own Paula period, no `cd.device` |
 | [10-input-and-saves.md](docs/10-input-and-saves.md) | Seven pad buttons clocked by hand, and a 2400-baud modem dialler |
 | [11-archaeology.md](docs/11-archaeology.md) | The archaeology, and Guildhall twice |
-| [12-open-questions.md](docs/12-open-questions.md) | Eleven things unresolved, with the measurement beside each |
+| [12-open-questions.md](docs/12-open-questions.md) | Twelve things unresolved, with the measurement beside each |
 | [notes/file-inventory.md](notes/file-inventory.md) | All 131 files with LBA, size, timestamp, unpacked size and SHA-1 |
 | [cd32-platformnotes-doc](https://github.com/vs-sr-dev/cd32-platformnotes-doc) | **Platform checklist** — what to look for on *any* CD32 or CDTV disc. Shared by every Amiga CD pipeline; this repo does not keep a copy |
 
