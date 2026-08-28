@@ -71,6 +71,18 @@ That gives a sharper form of the platform checklist's question. It is not "is
 there a chunky buffer?" — Gloom has nothing else. **It is "is there a planar
 destination?"**
 
+**And the copper program is not rebuilt per frame.** The builder has no direct
+callers: it is reached only from the screen constructor, so the register
+numbers, the bank switches, the `WAIT`s and the `BPLCON4` writes are laid down
+once per screen. A frame changes **two bytes out of every four** — 16,200 bytes
+for the 90 x 90 view, 7,920 for the split-screen one. Nor is it an extra pass:
+there is no chunky buffer, so the rasteriser's store *is* the copper-list write,
+against the 23,287 bytes of traffic a conventional chunky-buffer-plus-C2P route
+would move for the same 8,100 pixels. What does bind is copper DMA — 94 `MOVE`s
+per row block is **85 %** of the slots in the two scanlines it covers, which is
+why every 3D descriptor is `2 x 2` and why the widest view on the disc is 90
+pixels and not the 128 the palette would allow.
+
 **AGA is required, four times over.** `FMODE = $000F`, `BPLCON0` with `BPU = 7`
 (a value that does not exist on OCS or ECS), `BPLCON3` written with `LOCT`, and
 `BPLCON4` and `DIWHIGH` written at all. `LoadRGB4` and `LoadRGB32` are both

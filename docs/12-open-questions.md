@@ -31,6 +31,29 @@ screen descriptor — neither is ever read through `a2`, so the structure is
 passed in another register and the reads are not findable by a fixed-offset
 grep.
 
+## 1b. How much of a frame does writing the copper list actually take?
+
+Everything in [07-display-and-akiko.md](07-display-and-akiko.md) under "what it
+costs" is **static arithmetic, not a measurement**. What is established from the
+call graph is that the copper *skeleton* is built once per screen and only the
+data words move per frame — 16,200 bytes for the 90 x 90 view, 7,920 for the
+66 x 60 one. What is not established is the share of the frame that goes into
+writing them, or how badly the CPU is starved by a copper taking ~85 % of the
+raster's DMA slots.
+
+**The experiment is cheap and needs no disassembler.** The game exposes
+`RESOLUTION` and `WINDOW SIZE` in its own front end and ships two view
+geometries whose pixel counts differ by better than 2:1 (8,100 against 3,960).
+Comparing frame times at 90 x 90 and 66 x 60 under a cycle-exact emulator
+separates the per-pixel cost from the fixed per-frame cost in one measurement.
+A debugger watchpoint on the allocated copper buffer plus a raster-line log
+would then give the window in which the CPU does the writing, and would settle
+open question 1 above at the same time.
+
+The `FMODE = $000F` reading — that the widest AGA fetch mode is there to free
+DMA slots for the copper rather than for display width — is an inference from
+the same arithmetic and would fall out of the same trace.
+
 ## 2. Is the texture record row-major or column-major?
 
 Each wall texture is **4,160 bytes = 65 x 64**, which is certain: the loader

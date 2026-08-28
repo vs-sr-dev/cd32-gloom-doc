@@ -349,19 +349,91 @@ filling the other half for the row below it.** Seven bitplanes give 128 distinct
 indices; AGA's 256 colour registers give two banks of them; the copper does the
 rest.
 
-Cost, for the shipped geometries:
+## What it costs
 
-| View | Copper bytes per row | Rows | List | x2 (double buffered) |
+### The skeleton is static; only the data words move
+
+The obvious objection to the whole arrangement is that the CPU must now
+regenerate a 34 KB copper program every frame on a 14 MHz 68EC020 sharing the
+bus with the chipset. **It does not**, and the call graph says so: the builder at
+hunk `0x9cde`–`0x9d90` has no direct callers at all. It is reached only by the
+`beq.w` fall-through from the screen constructor at `0x9c3c`, which is called
+from `0x8ccc`, `0x828a` and `0x82b2` — screen open, not any frame path. The
+per-row `WAIT` emitter at `0x9daa` is likewise called from exactly two places,
+`0x9d66` and `0x9d78`, both inside the builder.
+
+So the register numbers, the `BPLCON3` bank switches, the `WAIT`s and the
+`BPLCON4` writes are laid down **once per screen**. What a frame has to change is
+**the data word of each `COLOR` move — two bytes out of every four**:
+
+| View | List | Rewritten per frame | | At 50 Hz |
 |---|---:|---:|---:|---:|
-| 90 x 90, scale 2 | 4 x (90 + 2 + 3) = 380 | 90 | 34,216 | **68,432** |
-| 66 x 60, scale 2 | 4 x (66 + 2 + 3) = 284 | 60 | 17,056 | **34,112** |
+| 90 x 90, scale 2 | 34,216 B (x2 = 68,432) | 8,100 px x 2 B = **16,200 B** | 47 % | 791 KB/s |
+| 66 x 60, scale 2 | 17,056 B (x2 = 34,112) | 3,960 px x 2 B = **7,920 B** | 46 % | 387 KB/s |
 
-and the ceiling is structural: **a row cannot be wider than 128 pixels**, because
-there are only 128 colour indices in seven bitplanes. That is exactly the width
-of the largest 3D view on the disc (90) and why the 320-pixel descriptor is the
-one the text and picture screens use — record 0 is the descriptor passed to the
-bitplane-pointer patcher at hunk `0x8cd6`, and it is what every menu, title
-screen and mission-text page is drawn on.
+The 68,432 figure is *both* buffers; one is written per frame, and not half of
+that one.
+
+The row allocation `4 * (width + (width-1)/32 + 3)` closes exactly, with no
+slack: for width 90 that is 95 longwords = **90 `COLOR` moves + 3 `BPLCON3` bank
+switches + 1 `WAIT` + 1 `BPLCON4`**, and for width 66 it is 71 = 66 + 3 + 1 + 1.
+Three banks because the register index counts down from 127 and crosses a
+32-register boundary twice.
+
+### And it is not an extra pass — it is the only pass
+
+There is no chunky buffer anywhere in the pipeline, so the rasteriser's store
+*is* the copper-list write. For the same 8,100 pixels a conventional route would
+cost, in chip-RAM traffic alone:
+
+```
+chunky write   8,100 B
+chunky read    8,100 B      (the C2P has to read it back)
+planar write   7,087 B      (8,100 px x 7 planes / 8)
+               -------
+               23,287 B     plus the conversion itself
+```
+
+against **16,200 B written once, no read-back and no conversion**. The copper
+route is cheaper in bandwidth and free in ALU work; what it costs is two bytes
+per pixel where a planar bitmap costs seven-eighths of one, which is exactly why
+the view is a window and not the screen.
+
+### The binding constraint is copper DMA, and it explains the geometry
+
+A copper `MOVE` occupies two DMA slots and a `WAIT` three; a PAL line offers on
+the order of 113 slots to non-display DMA. Per row block:
+
+| View | MOVEs | Slots | Available over `yscale` lines | |
+|---|---:|---:|---:|---:|
+| 90 x 90, scale 2 | 94 | 191 | 226 | **85 %** |
+| 66 x 60, scale 2 | 70 | 143 | 226 | 63 % |
+
+Three things follow, and all three match what shipped.
+
+* **`yscale = 2` is not a picture-quality choice, it is what makes the copper
+  fit.** At 1:1 a row block would have ~113 slots for 191 slots of work. Every
+  3D-view descriptor on the disc is `2 x 2`; the only `1 x 1` descriptor is
+  record 0, the ordinary planar screen the menus use.
+* **The width ceiling is DMA, not palette.** Seven bitplanes give 128 indices,
+  so 128 looks like the limit — but subtract the fixed six slots per row block
+  (`WAIT` plus three moves) from 226 and there are 217 left, which is
+  **108 `COLOR` moves**, before bitplane DMA takes anything. The widest view on
+  the disc is 90.
+* **`FMODE = $000F` starts to look like a bandwidth decision rather than a width
+  one.** A 320-pixel lores display does not need the widest AGA fetch mode for
+  width; it does need bitplane DMA out of the copper's way. *This one is an
+  inference* — working out the exact AGA fetch-mode slot allocation is not done
+  here — but it is testable and it points the same way as the other two.
+
+CPU side, as a ballpark only: 8,100 word stores against ~283,740 CPU clocks per
+frame at 14.19 MHz and 50 Hz is **11–23 %** of the frame's budget for the stores
+alone, before any rasterisation arithmetic — and worse in practice, because the
+copper is taking most of the chip-RAM slots the CPU would otherwise use.
+
+**None of this is a measurement.** No cycle-accurate trace was run; see
+[12-open-questions.md](12-open-questions.md) for the experiment that would settle
+it, which does not require a disassembler.
 
 ## So the answer to the Akiko question
 
